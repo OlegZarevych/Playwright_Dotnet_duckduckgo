@@ -1,8 +1,5 @@
-using duckduckGoPlaywright.Driver;
 using PlaywrightSharp;
 using System;
-using Xunit;
-using duckduckGoPlaywright.Driver;
 using System.Threading.Tasks;
 
 namespace duckduckGoPlaywright
