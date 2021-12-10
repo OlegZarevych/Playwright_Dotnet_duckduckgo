@@ -1,4 +1,6 @@
-﻿using duckduckGoPlaywright.Pages;
+﻿using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using duckduckGoPlaywright.Pages;
 using Xunit;
 
 namespace duckduckGoPlaywright.Tests
@@ -18,6 +20,13 @@ namespace duckduckGoPlaywright.Tests
             var linkCount = await resultPage.GetLinksCount();
 
             Assert.Equal(10, linkCount);
+
+            var extent = new ExtentReports();
+            var spark = new ExtentSparkReporter("Spark.html");
+            extent.AttachReporter(spark);
+            extent.CreateTest("MyFirstTest")
+              .Log(Status.Pass, "This is a logging event for MyFirstTest, and it passed!");
+            extent.Flush();
         }
     }
 }
